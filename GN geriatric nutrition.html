@@ -1,0 +1,636 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GN geriatric nutrition</title>
+<meta name="description" content="مشروع توعوي من طلاب جامعة بدر بالقاهرة عن تغذية كبار السن: بروتين، عظام، مية، ملح وسكر، أكل مصري صحي، فحوصات دورية.">
+
+<!-- معاينة المشاركة على واتساب وفيسبوك -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="GN geriatric nutrition">
+<meta property="og:description" content="اختيارات بسيطة النهارده... صحة أفضل بكرة">
+<meta property="og:image" content="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#2E7D32;
+  --primary-2:#2E7D32;
+  --secondary:#66BB6A;
+  --light:#f8faf7;
+  --blue:#1565C0;
+  --dark:#222;
+  --white:#fff;
+  --warn:#FFF4D6;
+  --warn-border:#E0A800;
+  --bad-bg:#ffe4e4;
+  --good-bg:#e6ffe8;
+  --water-bg:#e9f4ff;
+  --card-shadow:0 5px 15px rgba(0,0,0,.08);
+  --fs:100%;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
+
+html{font-size:var(--fs);scroll-behavior:smooth;scroll-padding-top:90px;}
+
+body{
+  background:var(--light);
+  color:var(--dark);
+  line-height:1.9;
+  font-size:1.15rem;
+}
+
+a{color:var(--blue);}
+
+:focus-visible{outline:4px solid #FFB300;outline-offset:3px;}
+
+section{padding:60px 8%;}
+
+h1{font-size:2.8rem;margin-bottom:20px;line-height:1.5;}
+h2{font-size:2rem;margin-bottom:12px;color:var(--primary);}
+h3{font-size:1.35rem;margin-bottom:10px;}
+p,li{font-size:1.2rem;}
+li{margin-bottom:10px;}
+ul,ol{padding-right:25px;}
+
+.lead{margin-bottom:25px;color:#444;}
+
+/* ---------- شريط التنقل ---------- */
+.topbar{
+  position:sticky;top:0;z-index:100;
+  background:var(--primary);color:#fff;
+  box-shadow:0 2px 10px rgba(0,0,0,.25);
+}
+.topbar-inner{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:8px 4%;flex-wrap:wrap;
+}
+.nav{display:flex;gap:4px;flex-wrap:wrap;}
+.nav a{
+  color:#fff;text-decoration:none;font-size:1rem;font-weight:600;
+  padding:6px 12px;border-radius:20px;
+}
+.nav a:hover{background:rgba(255,255,255,.2);}
+.tools{display:flex;gap:6px;align-items:center;}
+.tools button{
+  background:#fff;color:var(--primary);border:none;cursor:pointer;
+  font-size:1rem;font-weight:800;padding:6px 14px;border-radius:20px;
+}
+.tools button:hover{background:#e3f1e3;}
+
+/* ---------- تنبيه طبي ---------- */
+.disclaimer{
+  background:var(--warn);border-right:8px solid var(--warn-border);
+  padding:18px 8%;font-size:1.1rem;color:#222;
+}
+.disclaimer strong{color:#7a5600;}
+
+/* ---------- Hero ---------- */
+.hero{
+  background:linear-gradient(rgba(46,125,50,.85),rgba(46,125,50,.85)),
+  url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1500&q=80');
+  background-size:cover;background-position:center;
+  color:#fff;text-align:center;padding:110px 8%;
+}
+.hero p{font-size:1.6rem;margin-bottom:18px;}
+.btn{
+  display:inline-block;background:#fff;color:var(--primary);
+  padding:14px 34px;border-radius:40px;text-decoration:none;
+  font-size:1.2rem;font-weight:800;margin:6px;border:none;cursor:pointer;
+}
+.btn.alt{background:transparent;color:#fff;border:3px solid #fff;}
+
+/* ---------- كروت ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;}
+.card{
+  background:#fff;padding:26px;border-radius:20px;
+  box-shadow:var(--card-shadow);text-align:center;
+}
+.card .icon{font-size:3rem;margin-bottom:10px;}
+.card p{font-size:1.1rem;}
+.card.left{text-align:right;}
+
+/* ---------- جداول ---------- */
+.table-section{overflow-x:auto;}
+table{width:100%;background:#fff;border-collapse:collapse;border-radius:20px;overflow:hidden;box-shadow:var(--card-shadow);}
+th{background:var(--primary);color:#fff;font-size:1.15rem;padding:16px;}
+td{padding:16px;font-size:1.1rem;text-align:center;border-bottom:1px solid #eee;}
+td.r{text-align:right;}
+
+/* ---------- أعمدة المقارنة البسيطة (بدون مكتبات) ---------- */
+.chart-box{background:#fff;padding:25px;border-radius:20px;box-shadow:var(--card-shadow);margin-top:25px;}
+.bar-row{display:grid;grid-template-columns:120px 1fr 100px;gap:12px;align-items:center;margin:10px 0;}
+.bar-track{background:#e7efe7;border-radius:12px;height:26px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:12px;background:linear-gradient(90deg,var(--primary-2),var(--secondary));width:0;transition:width 1.1s ease;}
+.bar-label{font-weight:700;}
+.bar-val{font-weight:800;color:var(--primary);text-align:left;}
+.note{font-size:1rem;color:#555;margin-top:12px;}
+
+/* ---------- مقارنات ---------- */
+.comparison{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.bad{background:var(--bad-bg);padding:28px;border-radius:20px;}
+.good{background:var(--good-bg);padding:28px;border-radius:20px;}
+.bad h3{color:#d32f2f;}
+.good h3{color:#2e7d32;}
+
+.highlight{
+  background:#fff;border-right:8px solid var(--blue);
+  padding:22px;border-radius:15px;font-size:1.3rem;margin-top:20px;
+  box-shadow:var(--card-shadow);
+}
+.tip{
+  background:#fff;border-right:8px solid var(--secondary);
+  padding:18px 22px;border-radius:15px;margin-top:16px;box-shadow:var(--card-shadow);
+}
+
+.water{background:var(--water-bg);}
+.salt{background:#fff7ec;}
+
+/* ---------- حاسبة ---------- */
+.calc{background:#fff;padding:26px;border-radius:20px;box-shadow:var(--card-shadow);margin-top:22px;}
+.calc label{display:block;font-weight:700;margin:10px 0 6px;font-size:1.1rem;}
+.calc input[type=number]{
+  width:100%;max-width:260px;padding:12px;font-size:1.2rem;
+  border:2px solid #9bbf9d;border-radius:12px;
+}
+.calc .check{display:flex;gap:10px;align-items:flex-start;margin:14px 0;font-size:1.05rem;}
+.calc .check input{width:24px;height:24px;margin-top:6px;}
+.result{margin-top:16px;font-size:1.3rem;font-weight:800;color:var(--blue);}
+
+/* ---------- أسئلة شائعة ---------- */
+details{background:#fff;border-radius:16px;padding:16px 22px;margin-bottom:12px;box-shadow:var(--card-shadow);}
+summary{font-weight:800;font-size:1.2rem;cursor:pointer;}
+details p{margin-top:10px;}
+
+/* ---------- المصادر والفريق ---------- */
+.sources li{word-break:break-word;}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+
+/* ---------- الفوتر ---------- */
+.footer{background:#1b1b1b;color:#fff;text-align:center;padding:40px 8%;}
+.footer p{font-size:1.05rem;}
+
+/* ---------- ظهور تدريجي ---------- */
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.show{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  .bar-fill{transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ---------- موبايل ---------- */
+@media(max-width:768px){
+  section{padding:45px 5%;}
+  h1{font-size:2rem;}
+  h2{font-size:1.6rem;}
+  .comparison{grid-template-columns:1fr;}
+  .bar-row{grid-template-columns:80px 1fr 70px;}
+  .nav{display:none;}
+  .hero{padding:80px 6%;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- شريط التنقل + أدوات سهولة القراءة -->
+<header class="topbar no-print">
+  <div class="topbar-inner">
+    <nav class="nav" aria-label="أقسام الموقع">
+      <a href="#nutrition">أهمية التغذية</a>
+      <a href="#protein">البروتين</a>
+      <a href="#bones">العظام</a>
+      <a href="#water">المية</a>
+      <a href="#salt">الملح والسكر</a>
+      <a href="#egypt">أكل مصري</a>
+      <a href="#checkups">الفحوصات</a>
+      <a href="#sources">المصادر</a>
+    </nav>
+    <div class="tools" role="group" aria-label="أدوات سهولة القراءة">
+      <button id="fontMinus" aria-label="تصغير الخط">A-</button>
+      <button id="fontPlus" aria-label="تكبير الخط">A+</button>
+    </div>
+  </div>
+</header>
+
+<!-- تنبيه طبي -->
+<div class="disclaimer" role="note">
+  <strong>تنبيه طبي:</strong>
+  المعلومات في هذا الموقع توعوية ولا تغني عن استشارة الطبيب أو أخصائي التغذية، خصوصاً لمرضى السكر والضغط والكلى والقلب ومن يتناولون أدوية بشكل منتظم.
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>غذاء وصحة كبار السن</h1>
+  <p>مشروع توعوي مقدم من طلاب جامعة بدر بالقاهرة</p>
+  <p>اختيارات بسيطة النهارده... صحة أفضل بكرة</p>
+  <a href="#nutrition" class="btn">ابدأ رحلتك الصحية</a>
+</section>
+
+<!-- IMPORTANCE -->
+<section id="nutrition" class="reveal">
+  <h2>ليه التغذية مهمة لكبار السن؟</h2>
+  <p class="lead">مع التقدم في السن بتزيد حاجة الجسم لبعض العناصر وبتقل الشهية والإحساس بالعطش، فالاختيار الصح للأكل بيفرق جداً.</p>
+  <div class="cards">
+    <div class="card"><div class="icon">🧠</div><h3>صحة المخ</h3><p>التغذية السليمة بتساعد على الحفاظ على التركيز والذاكرة.</p></div>
+    <div class="card"><div class="icon">❤️</div><h3>صحة القلب</h3><p>الأكل الصحي يساعد على حماية القلب والشرايين.</p></div>
+    <div class="card"><div class="icon">🦴</div><h3>العظام</h3><p>الكالسيوم وفيتامين د بيقووا العظام.</p></div>
+    <div class="card"><div class="icon">💪</div><h3>العضلات</h3><p>البروتين يساعد في الحفاظ على الكتلة العضلية.</p></div>
+    <div class="card"><div class="icon">💧</div><h3>الترطيب</h3><p>شرب المية يقلل الجفاف والإمساك.</p></div>
+  </div>
+</section>
+
+<!-- PROTEIN -->
+<section id="protein" class="reveal">
+  <h2>أفضل مصادر البروتين</h2>
+  <p class="lead">البروتين مهم للحفاظ على العضلات والمناعة وبيساعد على تقليل الضعف وخطر الوقوع.</p>
+
+  <div class="table-section">
+    <table>
+      <tr><th>الغذاء</th><th>البروتين لكل 100 جم (تقريباً)</th></tr>
+      <tr><td>صدر دجاج</td><td>31 جم</td></tr>
+      <tr><td>تونة</td><td>29 جم</td></tr>
+      <tr><td>صدر رومي</td><td>29 جم</td></tr>
+      <tr><td>سلمون</td><td>25 جم</td></tr>
+      <tr><td>لحم بقري</td><td>21 - 25 جم (متوسط 23)</td></tr>
+    </table>
+  </div>
+
+  <div class="chart-box" aria-label="رسم يقارن كمية البروتين">
+    <div class="bar-row"><span class="bar-label">صدر دجاج</span><div class="bar-track"><div class="bar-fill" data-w="31" data-max="31"></div></div><span class="bar-val">31 جم</span></div>
+    <div class="bar-row"><span class="bar-label">تونة</span><div class="bar-track"><div class="bar-fill" data-w="29" data-max="31"></div></div><span class="bar-val">29 جم</span></div>
+    <div class="bar-row"><span class="bar-label">صدر رومي</span><div class="bar-track"><div class="bar-fill" data-w="29" data-max="31"></div></div><span class="bar-val">29 جم</span></div>
+    <div class="bar-row"><span class="bar-label">سلمون</span><div class="bar-track"><div class="bar-fill" data-w="25" data-max="31"></div></div><span class="bar-val">25 جم</span></div>
+    <div class="bar-row"><span class="bar-label">لحم بقري</span><div class="bar-track"><div class="bar-fill" data-w="23" data-max="31"></div></div><span class="bar-val">21-25 جم</span></div>
+    <p class="note">القيم تقريبية وتختلف حسب طريقة الطهي والنوع. التونة المعلبة فيها صوديوم عالي (ملح)، فاشطفوها واختاروا النوع قليل الملح لمرضى الضغط.</p>
+  </div>
+
+  <div class="tip"><strong>مصادر بروتين تانية:</strong> البيض، الزبادي واللبن، الجبنة القريش، العدس والفول والحمص.</div>
+</section>
+
+<!-- SMART CHOICES -->
+<section class="reveal">
+  <h2>اختيارات أذكى للأكل</h2>
+  <div class="comparison">
+    <div class="bad">
+      <h3>❌ أقل صحة</h3>
+      <ul><li>بطاطس مقلية</li><li>بانيه مقلي</li><li>سمبوسة مقلية</li><li>كولسلو بالمايونيز</li></ul>
+    </div>
+    <div class="good">
+      <h3>✅ أفضل اختيار</h3>
+      <ul><li>بطاطس في الفرن</li><li>بانيه في الفرن</li><li>سمبوسة في الفرن</li><li>كولسلو بالزبادي</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- CARBS -->
+<section class="reveal">
+  <h2>الكربوهيدرات الصحية</h2>
+  <div class="highlight">
+    الجلوكوز هو مصدر الطاقة الرئيسي للمخ، والأفضل إنه ييجي من كربوهيدرات معقدة زي الشوفان والعيش البلدي والبقوليات، لأنها بتدي طاقة ثابتة ومش بترفع السكر بسرعة.
+  </div>
+  <br>
+  <div class="cards">
+    <div class="card"><div class="icon">🍞</div><p>العيش البلدي</p></div>
+    <div class="card"><div class="icon">🌾</div><p>الشوفان</p></div>
+    <div class="card"><div class="icon">🍚</div><p>الأرز (بكمية معتدلة)</p></div>
+    <div class="card"><div class="icon">🥔</div><p>بطاطس مسلوقة أو مشوية</p></div>
+    <div class="card"><div class="icon">🫘</div><p>البقوليات</p></div>
+  </div>
+</section>
+
+<!-- BONE HEALTH -->
+<section id="bones" class="reveal">
+  <h2>صحة العظام</h2>
+  <p class="lead">الاحتياج اليومي بيزيد بعد سن الخمسين. دي الأرقام الموصى بيها للبالغين الأصحاء (من المعاهد الوطنية للصحة بأمريكا).</p>
+
+  <div class="cards">
+    <div class="card"><div class="icon">🦴</div><h3>الكالسيوم</h3><p>لبن، زبادي، جبنة، سردين بالعظم، ورقيات.</p></div>
+    <div class="card"><div class="icon">☀️</div><h3>فيتامين د</h3><p>شمس الصبح لدقائق، سمك دهني، بيض. وممكن يحتاج مكمل بتحديد الطبيب.</p></div>
+    <div class="card"><div class="icon">🥩</div><h3>البروتين</h3><p>بيحافظ على العضلات اللي بتحمي العظام من الوقوع.</p></div>
+    <div class="card"><div class="icon">🥬</div><h3>فيتامين ك</h3><p>خضار ورقي زي السبانخ والجرجير والملوخية.</p></div>
+    <div class="card"><div class="icon">🍊</div><h3>فيتامين ج</h3><p>برتقال وجوافة وفلفل ملون، بيساعد على تكوين الكولاجين.</p></div>
+  </div>
+
+  <div class="table-section" style="margin-top:25px">
+    <table>
+      <tr><th>الفئة</th><th>الكالسيوم (ملجم/يوم)</th><th>فيتامين د (وحدة دولية/يوم)</th></tr>
+      <tr><td>رجال 51 - 70 سنة</td><td>1000</td><td>600</td></tr>
+      <tr><td>سيدات 51 - 70 سنة</td><td>1200</td><td>600</td></tr>
+      <tr><td>رجال فوق 70 سنة</td><td>1200</td><td>800</td></tr>
+      <tr><td>سيدات فوق 70 سنة</td><td>1200</td><td>800</td></tr>
+    </table>
+  </div>
+  <p class="note">المصدر: NIH Office of Dietary Supplements. الجرعات العلاجية للمكملات بيحددها الطبيب بعد تحليل فيتامين د.</p>
+</section>
+
+<!-- WATER -->
+<section id="water" class="water reveal">
+  <h2>اشرب مية كفاية 💧</h2>
+  <p class="lead">كبار السن بيحسوا بالعطش أقل من الشباب، فلازم الشرب يبقى على مدار اليوم حتى من غير عطش.</p>
+
+  <div class="cards">
+    <div class="card">✅ تمنع الجفاف</div>
+    <div class="card">✅ تساعد الكلى</div>
+    <div class="card">✅ تحسن التركيز</div>
+    <div class="card">✅ تقلل الإمساك</div>
+    <div class="card">✅ تحافظ على الدورة الدموية</div>
+  </div>
+
+  <div class="highlight">
+    علامات الجفاف: جفاف الفم - الدوخة - الإمساك - قلة التبول أو لون بول غامق - ضعف التركيز
+  </div>
+
+  <div class="calc">
+    <h3>حاسبة تقريبية لاحتياج المية</h3>
+    <label for="weight">الوزن بالكيلو</label>
+    <input type="number" id="weight" min="30" max="200" inputmode="numeric" placeholder="مثلاً 70">
+    <div class="check">
+      <input type="checkbox" id="restrict">
+      <label for="restrict" style="margin:0">عندي مرض كلى أو قلب أو فشل احتقاني، أو الدكتور حدد لي كمية سوائل</label>
+    </div>
+    <button class="btn" style="background:var(--primary);color:#fff;margin:0" id="waterBtn">احسب</button>
+    <div class="result" id="waterResult" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- SALT AND SUGAR -->
+<section id="salt" class="salt reveal">
+  <h2>الملح والصوديوم والسكر</h2>
+  <p class="lead">الملح الزيادة من أهم أسباب ارتفاع الضغط، وده من أكتر المشاكل الشائعة عند كبار السن. منظمة الصحة العالمية بتنصح بأقل من 5 جم ملح في اليوم (حوالي معلقة صغيرة).</p>
+
+  <div class="comparison">
+    <div class="bad">
+      <h3>❌ مصادر مخفية للملح والسكر</h3>
+      <ul>
+        <li>المخللات والزيتون</li>
+        <li>الجبنة المالحة (رومي وقديمة)</li>
+        <li>التونة والسمك المملح (الفسيخ والرنجة)</li>
+        <li>مكعبات المرقة والشوربة الجاهزة</li>
+        <li>الشيبسي والأكل الجاهز</li>
+        <li>العصائر المحلاة والمشروبات الغازية</li>
+        <li>الحلويات والمربى والشاي بسكر كتير</li>
+      </ul>
+    </div>
+    <div class="good">
+      <h3>✅ بدائل وحلول</h3>
+      <ul>
+        <li>استخدم ليمون وثوم وبصل وبقدونس وكمون وخل لزيادة الطعم</li>
+        <li>شيل المملحة من على السفرة</li>
+        <li>اشطف الأكل المعلب قبل ما تاكله</li>
+        <li>اقرأ ملصق المنتج وقارن الصوديوم</li>
+        <li>فاكهة طازجة بدل العصير والحلويات</li>
+        <li>قلل السكر في الشاي تدريجياً</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">المصدر: منظمة الصحة العالمية (WHO).</p>
+</section>
+
+<!-- HEALTHY FATS -->
+<section class="reveal">
+  <h2>الدهون الصحية</h2>
+  <div class="cards">
+    <div class="card">🐟 السلمون</div>
+    <div class="card">🐟 السردين والماكريل</div>
+    <div class="card">🫒 زيت الزيتون</div>
+    <div class="card">🥜 المكسرات (حفنة صغيرة)</div>
+    <div class="card">🥑 الأفوكادو</div>
+  </div>
+  <br>
+  <div class="comparison">
+    <div class="good"><h3>✅ اختار</h3><p>أسماك - مكسرات - زيت زيتون</p></div>
+    <div class="bad"><h3>❌ قلل</h3><p>السمن الصناعي - المقليات - الدهون المتحولة</p></div>
+  </div>
+</section>
+
+<!-- MEDITERRANEAN -->
+<section class="reveal">
+  <h2>حمية البحر المتوسط</h2>
+  <div class="cards">
+    <div class="card">🥗 خضار وفاكهة</div>
+    <div class="card">🫘 بقوليات</div>
+    <div class="card">🫒 زيت زيتون</div>
+    <div class="card">🐟 أسماك</div>
+    <div class="card">🌾 حبوب كاملة</div>
+  </div>
+  <br>
+  <div class="highlight">
+    ❤️ تدعم صحة القلب<br>
+    🩺 بتقلل خطر السكر<br>
+    ⚖️ بتساعد في ضبط الوزن<br>
+    🧠 بتدعم الذاكرة والتركيز<br>
+    🦴 بتساعد صحة العظام
+  </div>
+</section>
+
+<!-- EGYPTIAN FOOD -->
+<section id="egypt" class="reveal">
+  <h2>الأكل المصري الصحي</h2>
+  <p class="lead">مش لازم نغير أكلنا، كفاية نعدله شوية.</p>
+
+  <div class="table-section">
+    <table>
+      <tr><th>الأكلة</th><th>إزاي نخليها أصح</th></tr>
+      <tr><td>فول</td><td class="r">بزيت زيتون قليل بدل السمن، مع طماطم وليمون وسلطة</td></tr>
+      <tr><td>ملوخية</td><td class="r">مع دجاج أو سمك مشوي، وتقليل السمن في التقلية</td></tr>
+      <tr><td>كشري</td><td class="r">طبق صغير، وزودوا العدس والحمص وقللوا الدقة والشطة</td></tr>
+      <tr><td>فتة</td><td class="r">عيش بلدي مشوي بدل المقلي، وسمن أقل، وشوية خل وثوم</td></tr>
+      <tr><td>محشي</td><td class="r">بالأرز المعتدل وخضار كتير، من غير تقلية زيادة</td></tr>
+      <tr><td>شاي</td><td class="r">فاتح، وسكر أقل، ومش مع الأكل علشان الحديد</td></tr>
+    </table>
+  </div>
+
+  <h3 style="margin-top:35px">نموذج لـ يوم كامل (مثال)</h3>
+  <div class="table-section">
+    <table>
+      <tr><th>الوجبة</th><th>مثال</th></tr>
+      <tr><td>فطار</td><td class="r">فول بزيت زيتون + بيضة مسلوقة + عيش بلدي + طماطم وخيار</td></tr>
+      <tr><td>سناك</td><td class="r">زبادي مع فاكهة أو حفنة صغيرة مكسرات</td></tr>
+      <tr><td>غداء</td><td class="r">سمك أو دجاج مشوي + أرز بكمية معتدلة + سلطة + خضار مطبوخ</td></tr>
+      <tr><td>سناك</td><td class="r">فاكهة + كوب لبن أو شاي خفيف</td></tr>
+      <tr><td>عشاء</td><td class="r">شوربة عدس + جبنة قريش + عيش بلدي</td></tr>
+    </table>
+  </div>
+  <p class="note">الكميات بتختلف من شخص لتاني، وبتتحدد مع أخصائي التغذية حسب الحالة الصحية.</p>
+</section>
+
+<!-- COMMON PROBLEMS -->
+<section class="reveal">
+  <h2>مشاكل شائعة وحلولها الغذائية</h2>
+  <div class="cards">
+    <div class="card left"><h3>🍽️ ضعف الشهية</h3><p>وجبات صغيرة ومتكررة، أكل بطعم وشكل مشجع، وتناول الأكل مع الأسرة.</p></div>
+    <div class="card left"><h3>🦷 صعوبة المضغ أو البلع</h3><p>أكل طري ومهروس، شوربات وبيوريهات. ولو في اختناق متكرر لازم دكتور.</p></div>
+    <div class="card left"><h3>⚖️ نزول وزن بدون سبب</h3><p>ده مش طبيعي، وساعات بيبقى مرض. استشيروا الطبيب بسرعة.</p></div>
+    <div class="card left"><h3>🥵 قلة الإحساس بالعطش</h3><p>كوب مية على مواعيد ثابتة، وشوربة وفاكهة مليانة مية زي البطيخ والخيار.</p></div>
+  </div>
+</section>
+
+<!-- CHRONIC DISEASES -->
+<section class="reveal">
+  <h2>نصايح سريعة للأمراض المزمنة</h2>
+  <div class="cards">
+    <div class="card left"><h3>🩸 السكر</h3><p>وزعوا الكربوهيدرات على اليوم، وقللوا العصائر والحلويات، وركزوا على الألياف.</p></div>
+    <div class="card left"><h3>❤️ الضغط</h3><p>قللوا الملح والمخللات والجبنة المالحة، وزودوا الخضار والفاكهة.</p></div>
+    <div class="card left"><h3>🧪 الكلى</h3><p>البروتين والبوتاسيوم والمية بتتحدد بالطبيب. ماتغيروش فيها من نفسكم.</p></div>
+  </div>
+  <div class="tip"><strong>أدوية وأكل:</strong> الجريب فروت بيتداخل مع بعض أدوية الكوليسترول والضغط. الخضار الورقي فيه فيتامين ك ويتأثر بيه مميعات الدم زي الوارفارين، فالمطلوب ثبات الكمية يومياً مش المنع. اسألوا الصيدلي أو الطبيب قبل أي تغيير.</div>
+</section>
+
+<!-- CHECKUPS -->
+<section id="checkups" class="reveal">
+  <h2>الفحوصات الدورية المهمة</h2>
+  <p class="lead">كل فحص ومعناه وليه بنعمله. مواعيد التكرار تقريبية والطبيب هو اللي بيحددها حسب الحالة.</p>
+  <div class="table-section">
+    <table>
+      <tr><th>الفحص</th><th>معناه</th><th>ليه مهم</th><th>التكرار المعتاد</th></tr>
+      <tr><td>🩸 سكر صائم</td><td>مستوى السكر بعد صيام 8 ساعات</td><td>اكتشاف السكر مبكراً</td><td>مرة في السنة</td></tr>
+      <tr><td>🩸 HbA1c</td><td>متوسط السكر في آخر 3 شهور</td><td>متابعة التحكم في السكر</td><td>كل 3 - 6 شهور لمريض السكر</td></tr>
+      <tr><td>❤️ قياس الضغط</td><td>ضغط الدم</td><td>الوقاية من الجلطات والقلب</td><td>بانتظام في البيت</td></tr>
+      <tr><td>🦴 فيتامين د</td><td>مخزون فيتامين د</td><td>قوة العظام ومنع الهشاشة</td><td>مرة في السنة أو حسب الطبيب</td></tr>
+      <tr><td>🧪 CBC</td><td>صورة الدم الكاملة</td><td>اكتشاف الأنيميا والالتهابات</td><td>مرة في السنة</td></tr>
+      <tr><td>🧪 Ferritin</td><td>مخزون الحديد</td><td>تحديد سبب التعب والأنيميا</td><td>حسب الطبيب</td></tr>
+      <tr><td>🧪 Vitamin B12</td><td>فيتامين ب 12</td><td>صحة الأعصاب والذاكرة</td><td>حسب الطبيب</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section class="reveal">
+  <h2>نصيحة لأسرة كبير السن</h2>
+  <div class="cards">
+    <div class="card left"><h3>👨‍👩‍👧 كلوا سوا</h3><p>الأكل الجماعي بيزود الشهية ويحسن الحالة النفسية.</p></div>
+    <div class="card left"><h3>🛒 المشتريات</h3><p>اشتروا الأكل الصحي وابعدوا الأكل الجاهز والمخللات عن البيت.</p></div>
+    <div class="card left"><h3>👀 راقبوا</h3><p>انتبهوا لقلة الأكل أو الشرب أو نزول الوزن، وبلغوا الطبيب.</p></div>
+    <div class="card left"><h3>💊 الأدوية</h3><p>اعرفوا مواعيد الدواء وعلاقته بالأكل قبل أي تغيير.</p></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="reveal">
+  <h2>أسئلة شائعة</h2>
+  <details>
+    <summary>هل القهوة ممنوعة على كبار السن؟</summary>
+    <p>مش ممنوعة غالباً، وكوب أو اتنين في اليوم مقبولين لمعظم الناس. لكن ممكن تزود الضغط أو الخفقان أو تضعف النوم، فلازم يستشير الطبيب لو عنده مشكلة في القلب أو الضغط. وبلاش تتشرب مع الأكل مباشرة لأنها بتقلل امتصاص الحديد.</p>
+  </details>
+  <details>
+    <summary>هل ينفع ياكل بيض كل يوم؟</summary>
+    <p>معظم الأصحاء ممكن ياكلوا بيضة في اليوم ضمن نظام متوازن. مرضى الكوليسترول أو السكر أو القلب لازم يسألوا الدكتور عن العدد المناسب.</p>
+  </details>
+  <details>
+    <summary>هل لازم ياخد فيتامينات ومكملات؟</summary>
+    <p>مش للكل. الأكل المتنوع هو الأساس، والمكملات (زي فيتامين د أو ب 12) تتاخد بعد تحليل وتحديد من الطبيب.</p>
+  </details>
+  <details>
+    <summary>وجبات صغيرة ولا ثلاث وجبات كبيرة؟</summary>
+    <p>كتير من كبار السن بيرتاحوا لوجبات صغيرة متكررة، خصوصاً مع ضعف الشهية. المهم تغطية الاحتياج من البروتين والسوائل.</p>
+  </details>
+</section>
+
+<!-- SOURCES -->
+<section id="sources" class="reveal">
+  <h2>المصادر والمراجع</h2>
+  <p class="lead">اعتمد الموقع على المصادر دي. راجعوا الأرقام فيها مرة تانية قبل التسليم النهائي.</p>
+  <ul class="sources">
+    <li>منظمة الصحة العالمية - Healthy diet: <a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet" target="_blank" rel="noopener">who.int</a></li>
+    <li>منظمة الصحة العالمية - Sodium reduction: <a href="https://www.who.int/news-room/fact-sheets/detail/salt-reduction" target="_blank" rel="noopener">who.int</a></li>
+    <li>NIH Office of Dietary Supplements - Calcium: <a href="https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/" target="_blank" rel="noopener">ods.od.nih.gov</a></li>
+    <li>NIH Office of Dietary Supplements - Vitamin D: <a href="https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/" target="_blank" rel="noopener">ods.od.nih.gov</a></li>
+    <li>USDA FoodData Central (قيم البروتين): <a href="https://fdc.nal.usda.gov/" target="_blank" rel="noopener">fdc.nal.usda.gov</a></li>
+    <li>وزارة الصحة والسكان المصرية والمعهد القومي للتغذية (أضيفوا الروابط والإصدارات اللي هترجعوا لها)</li>
+  </ul>
+</section>
+
+<!-- TEAM -->
+<section class="reveal">
+  <h2>فريق العمل</h2>
+  <div class="team">
+    <div class="card"><div class="icon">👩‍🏫</div><h3>تحت إشراف</h3><p>اسم الدكتور المشرف</p></div>
+    <div class="card"><div class="icon">🧑‍🎓</div><h3>طالب 1</h3><p>اكتبوا الاسم والدور</p></div>
+    <div class="card"><div class="icon">🧑‍🎓</div><h3>طالب 2</h3><p>اكتبوا الاسم والدور</p></div>
+    <div class="card"><div class="icon">🧑‍🎓</div><h3>طالب 3</h3><p>اكتبوا الاسم والدور</p></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <h3>مشروع توعوي عن تغذية كبار السن</h3>
+  <p>إعداد طلاب جامعة بدر بالقاهرة</p>
+  <p>Badr University in Cairo (BUC)</p>
+  <p>المحتوى توعوي ولا يغني عن استشارة الطبيب</p>
+  <p>2026 © جميع الحقوق محفوظة</p>
+</footer>
+
+<script>
+/* ---------- حفظ الإعدادات بأمان ---------- */
+function save(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+function load(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+
+/* ---------- تكبير وتصغير الخط ---------- */
+var fsSteps=[90,100,115,130,150];
+var fsIndex=1;
+var savedFs=parseInt(load('fsIndex'),10);
+if(!isNaN(savedFs)&&savedFs>=0&&savedFs<fsSteps.length){fsIndex=savedFs;}
+function applyFs(){
+  document.documentElement.style.setProperty('--fs',fsSteps[fsIndex]+'%');
+  save('fsIndex',fsIndex);
+}
+document.getElementById('fontPlus').addEventListener('click',function(){
+  if(fsIndex<fsSteps.length-1){fsIndex++;applyFs();}
+});
+document.getElementById('fontMinus').addEventListener('click',function(){
+  if(fsIndex>0){fsIndex--;applyFs();}
+});
+applyFs();
+
+/* ---------- الظهور التدريجي + أعمدة البروتين ---------- */
+function showBars(){
+  document.querySelectorAll('.bar-fill').forEach(function(b){
+    var w=parseFloat(b.dataset.w),m=parseFloat(b.dataset.max);
+    b.style.width=(w/m*100)+'%';
+  });
+}
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('show');
+        if(e.target.id==='protein'){showBars();}
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+}else{
+  document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('show');});
+  showBars();
+}
+
+/* ---------- حاسبة المية ---------- */
+document.getElementById('waterBtn').addEventListener('click',function(){
+  var w=parseFloat(document.getElementById('weight').value);
+  var restrict=document.getElementById('restrict').checked;
+  var out=document.getElementById('waterResult');
+  if(restrict){
+    out.textContent='لازم الدكتور هو اللي يحدد كمية السوائل ليك. ماتعتمدش على الحاسبة.';
+    return;
+  }
+  if(isNaN(w)||w<30||w>200){
+    out.textContent='اكتب وزن صحيح بين 30 و 200 كيلو.';
+    return;
+  }
+  var liters=(w*30/1000).toFixed(1);
+  out.textContent='احتياجك التقريبي حوالي '+liters+' لتر في اليوم، وده يشمل المية اللي في الشوربة والفاكهة والمشروبات.';
+});
+
+</script>
+
+</body>
+</html>
+
+</body></html>
