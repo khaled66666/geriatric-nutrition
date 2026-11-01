@@ -1,11 +1,9 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GN geriatric nutrition</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">  
 <meta name="description" content="مشروع توعوي من طلاب جامعة بدر بالقاهرة عن تغذية كبار السن: بروتين، عظام، مية، ملح وسكر، أكل مصري صحي، فحوصات دورية.">
 
 <!-- معاينة المشاركة على واتساب وفيسبوك -->
@@ -14,6 +12,14 @@
 <meta property="og:description" content="اختيارات بسيطة النهارده... صحة أفضل بكرة">
 <meta property="og:image" content="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80">
 
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A5%97%3C/text%3E%3C/svg%3E">
+<noscript><style>
+.reveal{opacity:1 !important;transform:none !important;}
+.bar-row:nth-child(1) .bar-fill{width:100%}
+.bar-row:nth-child(2) .bar-fill,.bar-row:nth-child(3) .bar-fill{width:93.5%}
+.bar-row:nth-child(4) .bar-fill{width:80.6%}
+.bar-row:nth-child(5) .bar-fill{width:74.2%}
+</style></noscript>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -93,7 +99,9 @@ ul,ol{padding-right:25px;}
 /* ---------- Hero ---------- */
 .hero{
   background:linear-gradient(rgba(46,125,50,.85),rgba(46,125,50,.85)),
+  url('hero.jpg'),
   url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1500&q=80');
+  background-color:#2E7D32;
   background-size:cover;background-position:center;
   color:#fff;text-align:center;padding:110px 8%;
 }
@@ -184,24 +192,56 @@ details p{margin-top:10px;}
   html{scroll-behavior:auto;}
 }
 
+/* ---------- الطبق الصحي ---------- */
+.plate-wrap{display:flex;flex-wrap:wrap;gap:30px;align-items:center;justify-content:center;margin-top:20px;}
+.plate{
+  width:230px;height:230px;border-radius:50%;flex:none;
+  background:conic-gradient(#66BB6A 0 50%,#FFB74D 50% 75%,#FFE082 75% 100%);
+  border:10px solid #fff;box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+.plate-legend{list-style:none;padding:0;}
+.plate-legend li{display:flex;align-items:center;gap:12px;font-size:1.15rem;}
+.dot{display:inline-block;width:22px;height:22px;border-radius:50%;flex:none;}
+
+/* ---------- شعار + مشاركة + للأعلى ---------- */
+.brand{
+  color:#fff;text-decoration:none;font-weight:800;font-size:1.3rem;
+  background:rgba(255,255,255,.18);padding:4px 14px;border-radius:20px;letter-spacing:1px;
+}
+.tools a.sharebtn{
+  background:#fff;color:var(--primary);text-decoration:none;
+  font-size:1rem;font-weight:800;padding:6px 14px;border-radius:20px;
+}
+.tools a.sharebtn:hover{background:#e3f1e3;}
+#toTop{
+  position:fixed;bottom:20px;left:20px;z-index:90;
+  width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--primary);color:#fff;font-size:1.6rem;font-weight:800;
+  box-shadow:0 4px 12px rgba(0,0,0,.3);display:none;
+}
+#toTop.show{display:block;}
+
 /* ---------- موبايل ---------- */
 @media(max-width:768px){
+  html{scroll-padding-top:120px;}
   section{padding:45px 5%;}
   h1{font-size:2rem;}
   h2{font-size:1.6rem;}
   .comparison{grid-template-columns:1fr;}
   .bar-row{grid-template-columns:80px 1fr 70px;}
-  .nav{display:none;}
+  .nav{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;}
+  .nav a{white-space:nowrap;background:rgba(255,255,255,.12);}
   .hero{padding:80px 6%;}
 }
 
 </style>
 </head>
-<body>
+<body id="top">
 
 <!-- شريط التنقل + أدوات سهولة القراءة -->
 <header class="topbar no-print">
   <div class="topbar-inner">
+    <a class="brand" href="#top" aria-label="GN geriatric nutrition">GN</a>
     <nav class="nav" aria-label="أقسام الموقع">
       <a href="#nutrition">أهمية التغذية</a>
       <a href="#protein">البروتين</a>
@@ -215,6 +255,7 @@ details p{margin-top:10px;}
     <div class="tools" role="group" aria-label="أدوات سهولة القراءة">
       <button id="fontMinus" aria-label="تصغير الخط">A-</button>
       <button id="fontPlus" aria-label="تكبير الخط">A+</button>
+      <a class="sharebtn" id="waShare" href="https://wa.me/" target="_blank" rel="noopener">📲 مشاركة</a>
     </div>
   </div>
 </header>
@@ -230,7 +271,7 @@ details p{margin-top:10px;}
   <h1>غذاء وصحة كبار السن</h1>
   <p>مشروع توعوي مقدم من طلاب جامعة بدر بالقاهرة</p>
   <p>اختيارات بسيطة النهارده... صحة أفضل بكرة</p>
-  <a href="#nutrition" class="btn">ابدأ رحلتك الصحية</a>
+  <a href="#nutrition" class="btn">ابدأوا رحلتكم الصحية</a>
 </section>
 
 <!-- IMPORTANCE -->
@@ -268,7 +309,7 @@ details p{margin-top:10px;}
     <div class="bar-row"><span class="bar-label">صدر رومي</span><div class="bar-track"><div class="bar-fill" data-w="29" data-max="31"></div></div><span class="bar-val">29 جم</span></div>
     <div class="bar-row"><span class="bar-label">سلمون</span><div class="bar-track"><div class="bar-fill" data-w="25" data-max="31"></div></div><span class="bar-val">25 جم</span></div>
     <div class="bar-row"><span class="bar-label">لحم بقري</span><div class="bar-track"><div class="bar-fill" data-w="23" data-max="31"></div></div><span class="bar-val">21-25 جم</span></div>
-    <p class="note">القيم تقريبية وتختلف حسب طريقة الطهي والنوع. التونة المعلبة فيها صوديوم عالي (ملح)، فاشطفوها واختاروا النوع قليل الملح لمرضى الضغط.</p>
+    <p class="note">القيم تقريبية وتختلف حسب طريقة الطهي والنوع. رقم التونة (29 جم) للتونة الطازجة المطبوخة، أما التونة المعلبة فحوالي 25 جم. والمعلبة فيها صوديوم عالي (ملح)، فاشطفوها واختاروا النوع قليل الملح لمرضى الضغط.</p>
   </div>
 
   <div class="tip"><strong>مصادر بروتين تانية:</strong> البيض، الزبادي واللبن، الجبنة القريش، العدس والفول والحمص.</div>
@@ -332,7 +373,7 @@ details p{margin-top:10px;}
 
 <!-- WATER -->
 <section id="water" class="water reveal">
-  <h2>اشرب مية كفاية 💧</h2>
+  <h2>اشربوا مية كفاية 💧</h2>
   <p class="lead">كبار السن بيحسوا بالعطش أقل من الشباب، فلازم الشرب يبقى على مدار اليوم حتى من غير عطش.</p>
 
   <div class="cards">
@@ -357,6 +398,7 @@ details p{margin-top:10px;}
     </div>
     <button class="btn" style="background:var(--primary);color:#fff;margin:0" id="waterBtn">احسب</button>
     <div class="result" id="waterResult" aria-live="polite"></div>
+    <p class="note">الحساب بقاعدة تقريبية شائعة (حوالي 30 مل لكل كيلو من الوزن). هو تقدير عام ومش وصفة طبية، وبيختلف حسب الحالة الصحية والجو والأدوية.</p>
   </div>
 </section>
 
@@ -381,12 +423,12 @@ details p{margin-top:10px;}
     <div class="good">
       <h3>✅ بدائل وحلول</h3>
       <ul>
-        <li>استخدم ليمون وثوم وبصل وبقدونس وكمون وخل لزيادة الطعم</li>
-        <li>شيل المملحة من على السفرة</li>
-        <li>اشطف الأكل المعلب قبل ما تاكله</li>
-        <li>اقرأ ملصق المنتج وقارن الصوديوم</li>
+        <li>استخدموا ليمون وثوم وبصل وبقدونس وكمون وخل لزيادة الطعم</li>
+        <li>شيلوا المملحة من على السفرة</li>
+        <li>اشطفوا الأكل المعلب قبل ما تاكلوه</li>
+        <li>اقرأوا ملصق المنتج وقارنوا الصوديوم</li>
         <li>فاكهة طازجة بدل العصير والحلويات</li>
-        <li>قلل السكر في الشاي تدريجياً</li>
+        <li>قللوا السكر في الشاي تدريجياً</li>
       </ul>
     </div>
   </div>
@@ -405,9 +447,10 @@ details p{margin-top:10px;}
   </div>
   <br>
   <div class="comparison">
-    <div class="good"><h3>✅ اختار</h3><p>أسماك - مكسرات - زيت زيتون</p></div>
-    <div class="bad"><h3>❌ قلل</h3><p>السمن الصناعي - المقليات - الدهون المتحولة</p></div>
+    <div class="good"><h3>✅ اختاروا</h3><p>أسماك - مكسرات - زيت زيتون</p></div>
+    <div class="bad"><h3>❌ قللوا</h3><p>السمن الصناعي - المقليات - الدهون المتحولة</p></div>
   </div>
+  <p class="note">المصدر: منظمة الصحة العالمية (WHO) - Healthy diet. ارجعوا للطبيب لو في أمراض قلب أو كوليسترول.</p>
 </section>
 
 <!-- MEDITERRANEAN -->
@@ -428,6 +471,7 @@ details p{margin-top:10px;}
     🧠 بتدعم الذاكرة والتركيز<br>
     🦴 بتساعد صحة العظام
   </div>
+  <p class="note">المصدر: منظمة الصحة العالمية (WHO) - Healthy diet، والفوائد دي بتتحقق ضمن نمط حياة صحي كامل مش من أكلة واحدة.</p>
 </section>
 
 <!-- EGYPTIAN FOOD -->
@@ -459,6 +503,17 @@ details p{margin-top:10px;}
     </table>
   </div>
   <p class="note">الكميات بتختلف من شخص لتاني، وبتتحدد مع أخصائي التغذية حسب الحالة الصحية.</p>
+
+  <h3 style="margin-top:35px">طبق الأكل الصحي</h3>
+  <div class="plate-wrap">
+    <div class="plate" role="img" aria-label="طبق مقسوم: نصف خضار، ربع بروتين، ربع نشويات"></div>
+    <ul class="plate-legend">
+      <li><span class="dot" style="background:#66BB6A"></span>نصف الطبق: خضار وسلطة</li>
+      <li><span class="dot" style="background:#FFB74D"></span>ربع الطبق: بروتين (سمك، دجاج، بيض، بقوليات)</li>
+      <li><span class="dot" style="background:#FFE082"></span>ربع الطبق: نشويات (عيش بلدي، أرز، شوفان)</li>
+    </ul>
+  </div>
+  <p class="note">قاعدة عامة للأصحاء. مرضى السكر والكلى بيحتاجوا تقسيم محدد من الطبيب أو أخصائي التغذية.</p>
 </section>
 
 <!-- COMMON PROBLEMS -->
@@ -559,6 +614,8 @@ details p{margin-top:10px;}
 </section>
 
 <!-- FOOTER -->
+<button id="toTop" aria-label="العودة لأعلى الصفحة">↑</button>
+
 <footer class="footer">
   <h3>مشروع توعوي عن تغذية كبار السن</h3>
   <p>إعداد طلاب جامعة بدر بالقاهرة</p>
@@ -589,6 +646,22 @@ document.getElementById('fontMinus').addEventListener('click',function(){
 });
 applyFs();
 
+/* ---------- مشاركة واتساب ---------- */
+var wa=document.getElementById('waShare');
+if(wa){
+  wa.addEventListener('click',function(){
+    var msg='غذاء وصحة كبار السن - GN geriatric nutrition\n'+location.href;
+    wa.href='https://wa.me/?text='+encodeURIComponent(msg);
+  });
+}
+
+/* ---------- زر العودة للأعلى ---------- */
+var toTop=document.getElementById('toTop');
+window.addEventListener('scroll',function(){
+  toTop.classList.toggle('show',window.scrollY>600);
+},{passive:true});
+toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
 /* ---------- الظهور التدريجي + أعمدة البروتين ---------- */
 function showBars(){
   document.querySelectorAll('.bar-fill').forEach(function(b){
@@ -618,20 +691,18 @@ document.getElementById('waterBtn').addEventListener('click',function(){
   var restrict=document.getElementById('restrict').checked;
   var out=document.getElementById('waterResult');
   if(restrict){
-    out.textContent='لازم الدكتور هو اللي يحدد كمية السوائل ليك. ماتعتمدش على الحاسبة.';
+    out.textContent='لازم الدكتور هو اللي يحدد كمية السوائل. ماتعتمدوش على الحاسبة.';
     return;
   }
   if(isNaN(w)||w<30||w>200){
-    out.textContent='اكتب وزن صحيح بين 30 و 200 كيلو.';
+    out.textContent='اكتبوا وزن صحيح بين 30 و 200 كيلو.';
     return;
   }
   var liters=(w*30/1000).toFixed(1);
-  out.textContent='احتياجك التقريبي حوالي '+liters+' لتر في اليوم، وده يشمل المية اللي في الشوربة والفاكهة والمشروبات.';
+  out.textContent='الاحتياج التقريبي حوالي '+liters+' لتر في اليوم، وده يشمل المية اللي في الشوربة والفاكهة والمشروبات.';
 });
 
 </script>
 
 </body>
 </html>
-
-</body></html>
